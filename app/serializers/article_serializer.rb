@@ -3,7 +3,7 @@ class ArticleSerializer
   
 belongs_to :location
 
-  attributes :name, :number, :price, :category, :size
+  attributes :name, :number, :price, :category, :size, :location_id
 
   attribute :location do |object|
     "#{object.location.area}"
