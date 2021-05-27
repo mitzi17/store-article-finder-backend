@@ -21,11 +21,6 @@ class ArticlesController < ApplicationController
     end
 
 
-    def destroy 
-        article = Article.find(params[:id])
-        article.destroy 
-        render json: {message: "Article successfully deleted #{article.name}"}
-    end 
 
     private
 
