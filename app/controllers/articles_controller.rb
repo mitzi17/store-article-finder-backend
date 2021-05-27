@@ -14,20 +14,12 @@ class ArticlesController < ApplicationController
         article = Article.new(article_params)
         
         if article.save
-            render json: ArticleSerializer.new(article)
+            render json: article.serializable_hash(include: :location)
         else
             render json: {error: "Article did not save"}
         end
     end
 
-    def update 
-        article = Article.find(params[:id])
-        if article.update(article_params)
-            render json: ArticleSerializer.new(article)
-        else 
-            render json: {error: "Article could not save"}
-        end
-    end 
 
     def destroy 
         article = Article.find(params[:id])
